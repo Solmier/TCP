@@ -14,7 +14,7 @@ namespace SocketTcpServer
         {
             string[] word = new string[7] { "понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"};
             string sen="",err="";
-            int count = 0;
+            int words = 0;
             // получаем адреса для запуска сокета
             IPEndPoint ipPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), port);
 
@@ -46,15 +46,15 @@ namespace SocketTcpServer
                     while (handler.Available > 0);
 
                     
-                    count = Convert.ToInt32(builder.ToString());
+                    words = Convert.ToInt32(builder.ToString());
                     int i = 0;
                     // отправляем ответ
-                    if (count <= 7 && count>0)
+                    if (words <= 7 && words>0)
                     {
-                        while (count != 0)
+                        while (words != 0)
                         {
                             sen += word[i] + " ";
-                            count--;
+                            words--;
                             i++;
                         }
                         string message = "кол-во слов = " + builder.ToString()+"\n";
