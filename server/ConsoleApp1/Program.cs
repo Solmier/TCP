@@ -57,14 +57,14 @@ namespace SocketTcpServer
                             count--;
                             i++;
                         }
-                        string message = "кол. слов= " + builder.ToString()+"\n";
-                        Console.WriteLine(DateTime.Now.ToShortTimeString() + ": " + builder.ToString());
+                        string message = "кол-во слов = " + builder.ToString()+"\n";
+                        Console.WriteLine(DateTime.Now.ToShortTimeString() + " : " + builder.ToString());
                         data = Encoding.Unicode.GetBytes(message + "\n Слова: " + sen);
                         handler.Send(data);
                         handler.Shutdown(SocketShutdown.Both);
                         handler.Close();
                     }
-                    else err = ("Число введено неверно");
+                    else err = ("Неверний формат данных");
                     data = Encoding.Unicode.GetBytes(err);
                     handler.Send(data);
 
