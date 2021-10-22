@@ -64,9 +64,12 @@ namespace SocketTcpServer
                         handler.Shutdown(SocketShutdown.Both);
                         handler.Close();
                     }
-                    else err = ("Неверний формат данных");
+                    else
+                    {
+                    err = ("Неверний формат данных");
                     data = Encoding.Unicode.GetBytes(err);
                     handler.Send(data);
+                    }
 
                     // закрываем сокет
                     handler.Shutdown(SocketShutdown.Both);
